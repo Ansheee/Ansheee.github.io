@@ -1,0 +1,1560 @@
+
+/* KITSUNE - Personal web archive / 2000s */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 900px;
+    max-width: calc(100% - 20px);
+    margin: 0 auto;
+    padding: 10px;
+    color: #302d32;
+    background: #c9c5bd;
+    background-image: radial-gradient(#aaa49a 0.65px, transparent 0.65px);
+    background-size: 5px 5px;
+    font: 13px Verdana, Arial, sans-serif;
+}
+
+a {
+    color: #594c70;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #786080;
+}
+
+a:hover {
+    color: #b02d3b;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Estructura principal */
+
+.site-wrap {
+    padding: 7px;
+    background: #eeeae2;
+    border: 1px solid #77716b;
+    box-shadow: 3px 3px 0 #a49d92;
+}
+
+.site-header {
+    padding: 17px 15px 13px;
+    color: #fff;
+    background: #514b60;
+    border: 3px double #d7d0dc;
+}
+
+.site-header .eyebrow {
+    margin: 0 0 5px;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.site-header h1 {
+    margin: 2px 0 5px;
+    color: #fff;
+    font: bold 34px Georgia, serif;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px #292331;
+}
+
+.site-header p {
+    margin: 5px 0;
+    color: #e5dfeb;
+}
+
+/* Encabezado con banner */
+
+.header-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 15px;
+    align-items: center;
+}
+
+.header-text {
+    min-width: 0;
+}
+
+.header-banner {
+    display: block;
+    width: 100%;
+    height: 105px;
+    object-fit: cover;
+    border: 1px solid #aaa0b2;
+    background: #ded9e2;
+}
+
+/* Navegación */
+
+.site-nav {
+    margin: 7px 0 9px;
+    padding: 8px;
+    text-align: center;
+    background: #ded9e2;
+    border: 1px solid #9c93a4;
+}
+
+.site-nav a {
+    margin: 0 8px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.ticker {
+    margin: 7px 0;
+    padding: 6px;
+    color: #554965;
+    background: #e7e1eb;
+    border: 1px solid #aaa0b2;
+    font-size: 11px;
+}
+
+/* Distribución de columnas */
+
+.layout {
+    display: grid;
+    grid-template-columns: 205px minmax(0, 1fr);
+    gap: 9px;
+}
+
+.sidebar,
+.content {
+    min-width: 0;
+}
+
+/* Cuadros de contenido */
+
+.box {
+    margin-bottom: 9px;
+    padding: 10px;
+    background: #fffdf8;
+    border: 1px solid #aaa29a;
+}
+
+.box h2 {
+    margin: -10px -10px 9px;
+    padding: 7px;
+    color: #594b69;
+    background: #e8e2eb;
+    border-bottom: 1px solid #b7adbd;
+    font: bold 16px Georgia, serif;
+}
+
+.box h3 {
+    margin: 13px 0 5px;
+    color: #74617e;
+    font: bold 13px Georgia, serif;
+}
+
+.box p {
+    margin: 7px 0;
+    line-height: 1.55;
+}
+
+.box ul,
+.box ol {
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+.box img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #aaa29a;
+    padding: 3px;
+    background: white;
+}
+
+/* Portada */
+
+.welcome-layout {
+    display: grid;
+    grid-template-columns: 175px minmax(0, 1fr);
+    gap: 14px;
+    align-items: start;
+}
+
+.welcome-character {
+    width: 175px;
+    margin: 0;
+    padding: 5px;
+    background: #e8e2eb;
+    border: 1px solid #aaa0b2;
+    text-align: center;
+}
+
+.welcome-avatar {
+    display: block;
+    width: 100%;
+    height: 190px;
+    object-fit: contain;
+    background: #fffdf8;
+}
+
+.welcome-character figcaption {
+    margin-top: 6px;
+    color: #74617e;
+    font: italic 10px Georgia, serif;
+    letter-spacing: 0.3px;
+}
+
+.welcome-text {
+    min-width: 0;
+}
+
+.welcome-text p:first-child {
+    margin-top: 0;
+}
+
+/* Categorías de la portada */
+
+.columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.item {
+    min-width: 0;
+    margin: 5px 0;
+    padding: 7px;
+    background: #f7f3ed;
+    border: 1px dotted #b9b0a7;
+}
+
+.item > a:first-child {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #aaa29a;
+    background: #e8e2eb;
+}
+
+.item > a:first-child img {
+    display: block;
+    width: 100%;
+    height: 155px;
+    object-fit: cover;
+    border: 0;
+    padding: 0;
+    transition: transform 0.2s ease;
+}
+
+.item > a:first-child:hover img {
+    transform: scale(1.04);
+}
+
+.item b {
+    display: block;
+    margin-top: 5px;
+}
+
+.item img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+/* Imágenes, portadas y galerías */
+
+.image-frame {
+    margin: 8px 0;
+    padding: 5px;
+    text-align: center;
+    background: #f7f4ee;
+    border: 1px solid #c7bfb5;
+}
+
+.image-frame img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: 360px;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.image-frame figcaption {
+    margin-top: 5px;
+    color: #77716e;
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+    align-items: start;
+}
+
+.gallery .image-frame {
+    margin: 0;
+}
+
+.gallery .image-frame img {
+    width: 100%;
+    height: 190px;
+    object-fit: contain;
+}
+
+.cover-image {
+    width: 100%;
+    max-height: 280px;
+    object-fit: contain;
+}
+
+.banner-image {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    max-height: 240px;
+    margin: 8px auto;
+    object-fit: cover;
+}
+
+/* Perfiles */
+
+.profile {
+    display: grid;
+    grid-template-columns: 135px minmax(0, 1fr);
+    gap: 12px;
+    align-items: start;
+}
+
+.profile img {
+    width: 135px;
+    max-height: 175px;
+    object-fit: cover;
+    background: #f7f4ee;
+}
+
+.sidebar img {
+    display: block;
+    width: 100%;
+}
+
+/* Información con imagen lateral */
+
+.midori-info,
+.vocaloid-info {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 200px;
+    gap: 14px;
+    align-items: center;
+}
+
+.midori-info .banner-image,
+.vocaloid-info .banner-image {
+    width: 100%;
+    max-height: 200px;
+    margin: 0;
+    object-fit: contain;
+}
+
+/* Integrantes de Midori */
+
+.member-list {
+    padding: 0;
+    list-style: none;
+}
+
+.member-list li {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 8px 0;
+    padding: 5px;
+    background: #f7f3ed;
+    border: 1px dotted #b9b0a7;
+}
+
+.member-list img {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border: 1px solid #aaa29a;
+    padding: 2px;
+    background: white;
+}
+
+/* Video de Midori */
+
+.midori-video {
+    width: 100%;
+    max-width: 560px;
+    margin: 12px auto;
+    padding: 5px;
+    background: #e8e2eb;
+    border: 1px solid #aaa0b2;
+    box-shadow: 2px 2px 0 #d2c5d4;
+}
+
+.midori-video iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 0;
+}
+
+/* Datos de Hatsune Miku */
+
+.miku-data {
+    display: grid;
+    grid-template-columns: 125px minmax(0, 1fr);
+    gap: 12px;
+    align-items: start;
+}
+
+.miku-data-image {
+    min-width: 0;
+    text-align: center;
+}
+
+.miku-data-image img {
+    display: block;
+    width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+}
+
+.miku-data-image p {
+    margin-top: 6px;
+}
+
+/* Reproductor de SoundCloud */
+
+.miku-player {
+    display: block;
+    width: 255px;
+    max-width: 100%;
+    height: 255px;
+    margin: 10px auto;
+    border: 1px solid #aaa0b2;
+    background: #e8e2eb;
+}
+
+/* Tablas */
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.data-table th,
+.data-table td {
+    padding: 6px;
+    border: 1px solid #c9c1c9;
+    text-align: left;
+    vertical-align: top;
+}
+
+.data-table th {
+    width: 27%;
+    color: #554866;
+    background: #eee9ef;
+}
+
+/* Elementos secundarios */
+
+.small {
+    color: #77716e;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.stamp {
+    display: inline-block;
+    margin: 3px 2px 2px 0;
+    padding: 4px 6px;
+    color: #685777;
+    border: 1px dashed #887b91;
+    font-size: 10px;
+}
+
+.note {
+    padding: 8px;
+    background: #f3eee7;
+    border-left: 3px solid #887b91;
+}
+
+hr {
+    border: 0;
+    border-top: 1px dotted #aaa;
+}
+
+/* Videos */
+
+.video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+}
+
+.video-grid iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 1px solid #aaa;
+    background: #eee;
+}
+
+/* Pie de página */
+
+.site-footer {
+    margin-top: 9px;
+    padding: 10px;
+    color: #625b66;
+    background: #ded9e2;
+    border: 1px solid #9c93a4;
+    text-align: center;
+    font-size: 11px;
+}
+
+/* Adaptación para móviles */
+
+@media (max-width: 680px) {
+    body {
+        width: 100%;
+        max-width: 100%;
+        padding: 5px;
+    }
+
+    .header-content {
+        grid-template-columns: 1fr;
+    }
+
+    .header-banner {
+        height: 100px;
+    }
+
+    .header-text {
+        min-width: 0;
+    }
+
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        order: 2;
+    }
+
+    .welcome-layout {
+        grid-template-columns: 115px minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .welcome-character {
+        width: 115px;
+    }
+
+    .welcome-avatar {
+        height: 145px;
+    }
+
+    .profile {
+        grid-template-columns: 95px minmax(0, 1fr);
+    }
+
+    .profile img {
+        width: 95px;
+    }
+
+    .columns,
+    .video-grid,
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery .image-frame img {
+        height: auto;
+        max-height: 260px;
+    }
+
+    .midori-info,
+    .vocaloid-info {
+        grid-template-columns: 1fr;
+    }
+
+    .midori-info .banner-image,
+    .vocaloid-info .banner-image {
+        max-height: 230px;
+    }
+
+    .miku-data {
+        grid-template-columns: 105px minmax(0, 1fr);
+        gap: 9px;
+    }
+
+    .site-header h1 {
+        font-size: 28px;
+    }
+
+    .site-nav a {
+        display: inline-block;
+        margin: 4px 6px;
+    }
+}
+
+/* Discografía */
+
+.discography-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 190px;
+    gap: 18px;
+    align-items: start;
+}
+
+.discography-list {
+    min-width: 0;
+}
+
+.discography-list h3 {
+    margin-top: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px dotted #b9b0a7;
+}
+
+.discography-list ul {
+    margin: 7px 0 16px;
+    padding-left: 22px;
+    line-height: 1.8;
+}
+
+.discography-card {
+    padding: 9px;
+    text-align: center;
+    background: #f1edf2;
+    border: 1px solid #b7adbd;
+    box-shadow: 2px 2px 0 #d2c5d4;
+}
+
+.discography-card img {
+    display: block;
+    width: 145px;
+    height: 145px;
+    margin: 0 auto 9px;
+    padding: 3px;
+    object-fit: cover;
+    border: 1px solid #aaa0b2;
+    background: white;
+}
+
+.discography-title {
+    margin: 5px 0 2px;
+    color: #594b69;
+    font: bold 15px Georgia, serif;
+}
+
+.discography-card .small {
+    margin: 3px 0 8px;
+}
+
+.discography-card .stamp {
+    margin: 2px;
+}
+
+.discography-card p:last-child {
+    margin-bottom: 2px;
+    font-size: 11px;
+}
+
+@media (max-width: 680px) {
+    .discography-layout {
+        grid-template-columns: minmax(0, 1fr) 125px;
+        gap: 10px;
+    }
+
+    .discography-card img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+    }
+}
+
+/* Paneles laterales */
+
+.side-panel {
+    position: fixed;
+    top: 22px;
+    width: 175px;
+    max-height: calc(100vh - 44px);
+    overflow-y: auto;
+    font-size: 11px;
+    z-index: 10;
+}
+
+.side-left {
+    left: max(12px, calc(50% - 652px));
+}
+
+.side-right {
+    right: max(12px, calc(50% - 652px));
+}
+
+.side-box {
+    margin-bottom: 9px;
+    padding: 8px;
+    background: #eeeae2;
+    border: 1px solid #aaa29a;
+    box-shadow: 2px 2px 0 #a49d92;
+}
+
+.side-box h3 {
+    margin: -8px -8px 8px;
+    padding: 6px;
+    color: #594b69;
+    background: #ded9e2;
+    border-bottom: 1px solid #aaa0b2;
+    font: bold 12px Georgia, serif;
+}
+
+.side-box p {
+    margin: 6px 0;
+    line-height: 1.4;
+}
+
+.side-box hr {
+    border: 0;
+    border-top: 1px dotted #aaa29a;
+}
+
+.side-center {
+    text-align: center;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-right: 4px;
+    border-radius: 50%;
+    background: #6a9b75;
+}
+
+.side-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+}
+
+.side-buttons img {
+    width: 88px;
+    height: 31px;
+    object-fit: contain;
+    border: 0;
+    padding: 0;
+    background: transparent;
+}
+
+/* Ocultar laterales en pantallas pequeñas */
+
+@media (max-width: 1250px) {
+    .side-panel {
+        display: none;
+    }
+}
+/* Registro de actualizaciones */
+
+.update-entry {
+    display: grid;
+    grid-template-columns: 85px minmax(0, 1fr);
+    gap: 10px;
+    padding: 8px 4px;
+    border-bottom: 1px dotted #b9b0a7;
+}
+
+.update-date {
+    color: #887b91;
+    font: bold 11px Georgia, serif;
+}
+
+.update-entry b {
+    color: #594b69;
+}
+
+.update-entry p {
+    margin: 3px 0;
+}
+
+/* =====================================
+   ARCHIVO DE VIDEOJUEGOS - KITSUNE
+===================================== */
+
+/* Presentación */
+
+.game-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 125px;
+    gap: 15px;
+    align-items: center;
+}
+
+.game-intro-text {
+    min-width: 0;
+}
+
+.game-intro-label {
+    padding: 12px 5px;
+    text-align: center;
+    color: #e9e2ed;
+    background: #514b60;
+    border: 3px double #bcb1c5;
+}
+
+.game-intro-label span {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.game-intro-label b {
+    display: block;
+    margin: 5px 0;
+    color: white;
+    font: bold 30px Georgia, serif;
+}
+
+.game-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+    margin-top: 14px;
+}
+
+.game-summary div {
+    padding: 9px 5px;
+    text-align: center;
+    background: #eee9ef;
+    border: 1px solid #c9c1c9;
+}
+
+.game-summary b {
+    display: block;
+    color: #594b69;
+    font: bold 17px Georgia, serif;
+}
+
+.game-summary span {
+    display: block;
+    margin-top: 4px;
+    color: #77716e;
+    font-size: 10px;
+}
+
+.game-section-description {
+    margin-bottom: 12px;
+}
+
+/* Fichas individuales */
+
+.game-card {
+    display: grid;
+    grid-template-columns: 175px minmax(0, 1fr);
+    gap: 15px;
+    margin: 12px 0;
+    padding: 11px;
+    background: #f7f3ed;
+    border: 1px solid #c7bfb5;
+    box-shadow: 2px 2px 0 #ded8d0;
+}
+
+.game-cover {
+    min-width: 0;
+    padding: 6px;
+    background: #e8e2eb;
+    border: 1px solid #b7adbd;
+    text-align: center;
+}
+
+.game-cover img {
+    display: block;
+    width: 100%;
+    height: 190px;
+    object-fit: contain;
+    padding: 3px;
+    background: #fffdf8;
+    border: 1px solid #aaa0b2;
+}
+
+.cover-caption {
+    display: block;
+    margin-top: 7px;
+    color: #685777;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.game-details {
+    min-width: 0;
+}
+
+.game-card-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 5px;
+    padding-bottom: 6px;
+    border-bottom: 1px dotted #b9b0a7;
+}
+
+.game-id {
+    color: #887b91;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.game-status {
+    color: #64836a;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.game-details h3 {
+    margin: 9px 0 2px;
+    color: #51465e;
+    font: bold 20px Georgia, serif;
+}
+
+.game-original-title {
+    margin: 3px 0 9px;
+    color: #887b91;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+}
+
+.game-description {
+    margin: 8px 0;
+    line-height: 1.5;
+    font-size: 12px;
+}
+
+/* Datos técnicos */
+
+.game-data {
+    width: 100%;
+    margin: 10px 0;
+    border-collapse: collapse;
+    font-size: 11px;
+}
+
+.game-data th,
+.game-data td {
+    padding: 5px 7px;
+    border: 1px solid #d2c9d0;
+    text-align: left;
+}
+
+.game-data th {
+    width: 36%;
+    color: #594b69;
+    background: #eee9ef;
+}
+
+.game-data td {
+    background: #fffdf8;
+}
+
+/* Etiquetas */
+
+.game-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 9px 0;
+}
+
+.game-tags span {
+    padding: 4px 7px;
+    color: #685777;
+    background: #e8e2eb;
+    border: 1px solid #c9bdce;
+    font-size: 10px;
+}
+
+/* Enlaces de cada ficha */
+
+.game-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px dotted #b9b0a7;
+}
+
+.game-actions a {
+    display: inline-block;
+    padding: 6px 8px;
+    color: #594b69;
+    background: #eee9ef;
+    border: 1px solid #b7adbd;
+    font-size: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.game-actions a:hover {
+    color: white;
+    background: #514b60;
+}
+
+/* Fuentes externas */
+
+.game-resources {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+}
+
+.game-resources a {
+    display: block;
+    padding: 9px;
+    color: #594b69;
+    background: #f7f3ed;
+    border: 1px solid #c7bfb5;
+    text-decoration: none;
+}
+
+.game-resources a:hover {
+    background: #e8e2eb;
+}
+
+.game-resources b {
+    display: block;
+    font: bold 12px Georgia, serif;
+}
+
+.game-resources span {
+    display: block;
+    margin-top: 4px;
+    color: #77716e;
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+/* Próximamente */
+
+.game-coming-soon {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px;
+    background: #f7f3ed;
+    border: 1px dotted #b9b0a7;
+}
+
+.coming-icon {
+    display: flex;
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background: #514b60;
+    font: bold 23px Georgia, serif;
+}
+
+.game-coming-soon p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+.game-coming-soon a {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+/* Adaptación para móviles */
+
+@media (max-width: 680px) {
+
+    .game-intro {
+        grid-template-columns: minmax(0, 1fr) 95px;
+        gap: 8px;
+    }
+
+    .game-intro-label {
+        padding: 8px 3px;
+    }
+
+    .game-intro-label b {
+        font-size: 24px;
+    }
+
+    .game-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .game-card {
+        grid-template-columns: 105px minmax(0, 1fr);
+        gap: 9px;
+        padding: 7px;
+    }
+
+    .game-cover img {
+        height: 145px;
+    }
+
+    .game-details h3 {
+        font-size: 16px;
+    }
+
+    .game-data th,
+    .game-data td {
+        padding: 4px;
+        font-size: 10px;
+    }
+
+    .game-resources {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* RESIDENT EVIL 2 - SURVIVAL HORROR */
+
+.re2-page {
+    color: #d3c9b9;
+    background-color: #292725;
+    background-image:
+        radial-gradient(#49433d 0.7px, transparent 0.7px);
+    background-size: 5px 5px;
+}
+
+.re2-wrap {
+    background: #35312d;
+    border: 1px solid #75695d;
+    box-shadow: 4px 4px 0 #171615;
+}
+
+.re2-page a {
+    color: #b78b70;
+}
+
+.re2-page a:visited {
+    color: #967b6d;
+}
+
+.re2-page a:hover {
+    color: #e1b5a0;
+}
+
+/* Encabezado */
+
+.re2-header {
+    background: #292623;
+    border: 3px double #786b5d;
+}
+
+.re2-header h1 {
+    color: #d8c7b1;
+    font-family: Georgia, serif;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px #100f0e;
+}
+
+.re2-header p {
+    color: #b5a89a;
+}
+
+.re2-header .eyebrow {
+    color: #a77e6b;
+}
+
+.re2-ticker {
+    color: #d3b6a3;
+    background: #4a302b;
+    border: 1px solid #81594c;
+    letter-spacing: 1px;
+}
+
+.re2-nav {
+    background: #3b3732;
+    border: 1px solid #75695d;
+}
+
+.re2-nav a {
+    color: #d0c1ad;
+}
+
+.re2-nav a:hover {
+    color: #e1a18c;
+}
+
+/* Alerta */
+
+.re2-alert {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 8px 0;
+    padding: 9px;
+    background: #482e2a;
+    border: 1px solid #86544a;
+}
+
+.re2-alert span {
+    flex-shrink: 0;
+    padding: 5px 7px;
+    color: #f0d8ca;
+    background: #743b32;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.re2-alert p {
+    margin: 0;
+    color: #e0c6b7;
+    font-size: 10px;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+}
+
+/* Distribución */
+
+.re2-layout {
+    grid-template-columns: 215px minmax(0, 1fr);
+    gap: 10px;
+}
+
+.re2-layout .sidebar,
+.re2-layout .content {
+    min-width: 0;
+}
+
+/* Paneles */
+
+.re2-box {
+    color: #d3c9b9;
+    background: #3c3833;
+    border: 1px solid #71675c;
+    box-shadow: 2px 2px 0 #24211f;
+}
+
+.re2-box h2 {
+    margin: -10px -10px 10px;
+    padding: 8px;
+    color: #d6c3ac;
+    background: #4b433b;
+    border-bottom: 1px solid #887665;
+    font: bold 14px Georgia, serif;
+    letter-spacing: 1px;
+}
+
+.re2-box h3 {
+    color: #d2b49c;
+}
+
+.re2-box p {
+    line-height: 1.65;
+}
+
+.re2-box .small {
+    color: #a99e90;
+}
+
+.re2-box img {
+    border-color: #75695d;
+    background: #282522;
+}
+
+/* Expediente */
+
+.re2-file {
+    text-align: center;
+}
+
+.re2-file > img {
+    width: 100%;
+    max-height: 260px;
+    object-fit: contain;
+    padding: 5px;
+    background: #292623;
+    border: 1px solid #75695d;
+}
+
+.re2-file-title {
+    margin: 10px 0 2px;
+    color: #e0cbb5;
+    font: bold 15px Georgia, serif;
+}
+
+.re2-file-subtitle {
+    margin: 0 0 10px;
+    color: #a68a76;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.re2-stamps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+    margin: 9px 0;
+}
+
+.re2-stamps span {
+    padding: 4px 6px;
+    color: #d3b6a3;
+    border: 1px solid #806c5c;
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.re2-data {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 10px;
+}
+
+.re2-data th,
+.re2-data td {
+    padding: 6px 4px;
+    border: 1px solid #655c52;
+    vertical-align: top;
+}
+
+.re2-data th {
+    width: 42%;
+    color: #c2a68f;
+    background: #484039;
+}
+
+.re2-data td {
+    color: #d1c5b7;
+    background: #34312d;
+}
+
+/* Personajes */
+
+.re2-character-list {
+    padding-left: 18px;
+    color: #d1c5b7;
+    line-height: 1.9;
+}
+
+.re2-sidebar-note {
+    background: #37312c;
+    border-left: 3px solid #93624f;
+}
+
+.re2-sidebar-note span {
+    color: #b88d75;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Imagen principal */
+
+.re2-hero-image {
+    margin-top: 13px;
+    padding: 6px;
+    background: #292623;
+    border: 1px solid #76675b;
+}
+
+.re2-hero-image img {
+    display: block;
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.re2-hero-image span {
+    display: block;
+    margin-top: 6px;
+    color: #ae9782;
+    text-align: center;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+/* Cita */
+
+.re2-quote {
+    margin-top: 14px;
+    padding: 12px;
+    background: #302b27;
+    border-left: 3px solid #925e4c;
+}
+
+.re2-quote span {
+    color: #a68a76;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.re2-quote p {
+    margin: 8px 0 0;
+    color: #d7c4ae;
+    font: italic 15px Georgia, serif;
+}
+
+/* Fichas de personajes */
+
+.re2-character {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 10px;
+    margin: 8px 0;
+    padding: 9px;
+    background: #34302c;
+    border: 1px solid #5e554c;
+}
+
+.re2-character-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 34px;
+    color: #e0cbb5;
+    background: #57473c;
+    font: bold 14px Georgia, serif;
+}
+
+.re2-character h3 {
+    margin: 0 0 4px;
+    color: #d7b69b;
+    font: bold 14px Georgia, serif;
+}
+
+.re2-character p {
+    margin: 0;
+    color: #c4b8aa;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* Características */
+
+.re2-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+    margin-top: 13px;
+}
+
+.re2-feature-grid div {
+    padding: 9px;
+    background: #302c28;
+    border: 1px solid #62584e;
+}
+
+.re2-feature-grid b {
+    display: block;
+    margin-bottom: 4px;
+    color: #b17d65;
+    font: bold 16px Georgia, serif;
+}
+
+.re2-feature-grid span {
+    color: #d0c2b3;
+    font-size: 11px;
+}
+
+/* Galería */
+
+.re2-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+}
+
+.re2-gallery .image-frame {
+    background: #302c28;
+    border: 1px solid #71675c;
+}
+
+.re2-gallery .image-frame img {
+    width: 100%;
+    height: 190px;
+    object-fit: contain;
+    background: #24211f;
+}
+
+.re2-gallery figcaption {
+    color: #b6a18e;
+}
+
+/* Fuentes */
+
+.re2-sources {
+    padding-left: 20px;
+    line-height: 2;
+}
+
+.re2-sources li {
+    border-bottom: 1px dotted #655b50;
+}
+
+.re2-footer {
+    color: #b9aa99;
+    background: #302c28;
+    border-color: #71675c;
+}
+
+.re2-footer a {
+    color: #c39b7f;
+}
+
+/* Adaptación móvil */
+
+@media (max-width: 680px) {
+
+    .re2-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .re2-layout .sidebar {
+        order: 0;
+    }
+
+    .re2-layout .content {
+        order: 1;
+    }
+
+    .re2-file > img {
+        max-height: 320px;
+        width: auto;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .re2-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .re2-gallery .image-frame img {
+        height: auto;
+        max-height: 280px;
+    }
+
+    .re2-alert {
+        align-items: flex-start;
+    }
+
+    .re2-feature-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
