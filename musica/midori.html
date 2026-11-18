@@ -10,6 +10,9 @@
     <title>Midori | Kitsune</title>
 
     <link rel="stylesheet" href="../css/estilos.css">
+    <script src="../js/componentes.js" defer></script>
+    <script src="https://w.soundcloud.com/player/api.js" defer></script>
+    <script src="../js/soundcloud.js" defer></script>
 
     <style>
         .site-header {
@@ -27,15 +30,27 @@
         .site-nav {
             background: #e5e0e7;
         }
+    
+        .soundcloud-select {
+            max-width: 235px;
+            min-width: 110px;
+            height: 23px;
+            padding: 2px 5px;
+            border: 1px solid #a99bb2;
+            background: #f4f0f5;
+            color: #51415f;
+            font: 11px Verdana, Arial, sans-serif;
+        }
+        .soundcloud-select:disabled { opacity: .7; }
+        @media (max-width: 650px) { .soundcloud-select { max-width: 125px; } }
     </style>
 </head>
 
 <body>
+    <div id="left-panel"></div>
+    <div id="right-panel"></div>
 
     <div class="site-wrap">
-
-
-
         <header class="site-header">
 
             <p class="eyebrow">BAND ARCHIVE · ミドリ</p>
@@ -50,18 +65,41 @@
             ♪ MIDORI / LIVE / NOISE / JAZZ ♪
         </div>
 
+        <div id="site-navigation"></div>
+<div class="soundcloud-player">
 
+    <!-- REPRODUCTOR -->
+    <iframe
+        width="100%"
+        height="320"
+        scrolling="yes"
+        frameborder="yes"
+        allow="autoplay; encrypted-media"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A335745854&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+    </iframe>
 
-        <nav class="site-nav">
+    <div class="soundcloud-info">
 
-            <a href="../index.html">HOME</a> |
-            <a href="../musica.html">MUSIC</a> |
-            <a href="../videojuegos.html">GAMES</a> |
-            <a href="../cultura.html">NET CULTURE</a> |
-            <a href="../sobre-mi.html">ABOUT</a>
+        <a
+            href="https://soundcloud.com/alasnotengo"
+            target="_blank"
+            title="Midori">
+            Midori
+        </a>
 
-        </nav>
-<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A335745854&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/alasnotengo" title="alas" target="_blank" style="color: #cccccc; text-decoration: none;">alas</a> · <a href="https://soundcloud.com/alasnotengo/sets/midori-aratamemashite-hajimemashite-midori-desu" title="ミドリ Midori あらためまして、はじめまして、ミドリです。 Aratamemashite, Hajimemashite, Midori Desu" target="_blank" style="color: #cccccc; text-decoration: none;">ミドリ Midori あらためまして、はじめまして、ミドリです。 Aratamemashite, Hajimemashite, Midori Desu</a></div>
+        ·
+
+        <a
+            href="https://soundcloud.com/alasnotengo/sets/midori-aratamemashite-hajimemashite-midori-desu"
+            target="_blank"
+            title="Midori - Aratamemashite, Hajimemashite, Midori Desu">
+            ミドリ Midori あらためまして、はじめまして、ミドリです。
+            Aratamemashite, Hajimemashite, Midori Desu
+        </a>
+
+    </div>
+</div>
+
         <div class="layout">
 
             <aside class="sidebar">
@@ -78,7 +116,7 @@
                     <p><b>Midori / ミドリ</b></p>
 
                     <p class="small">
-                        Japanese band · Osaka
+                        Banda japonesa · Osaka
                     </p>
 
                     <span class="stamp">2003—2010</span>
@@ -105,7 +143,7 @@
 
                 <section class="box">
 
-                    <h2>★ links</h2>
+                    <h2>★ enlaces</h2>
 
                     <p>
                         <a
@@ -211,9 +249,9 @@
                 alt="Portada del álbum Second">
 
             <p class="discography-title">ミドリ / Midori</p>
-            <p class="small">Japanese alternative rock band</p>
+            <p class="small">Banda japonesa de rock alternativo</p>
 
-            <div class="stamp">DISCOGRAPHY</div>
+            <div class="stamp">DISCOGRAFÍA</div>
             <div class="stamp">2005 — 2010</div>
 
             <p>
@@ -277,12 +315,7 @@
 </section>
             </main>
         </div>
-        <footer class="site-footer">
-            Kitsune · fan-made archive · not an official page
-            <br>
-            <a href="../musica.html">← Back to Music</a> |
-            <a href="../index.html">HOME</a>
-        </footer>
+        <div id="site-footer"></div>
     </div>
 </body>
 </html>

@@ -1,13 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Hatsune Miku | Kitsune</title>
 
     <link rel="stylesheet" href="../css/estilos.css">
+
+    <script src="../js/componentes.js" defer></script>
+    <script src="https://w.soundcloud.com/player/api.js" defer></script>
+    <script src="../js/soundcloud.js" defer></script>
 
     <style>
         .site-header {
@@ -15,20 +19,225 @@
         }
 
         .box h2 {
-            color: #3b8992;
+            color: #287681;
         }
 
         a {
-            color: #3b8992;
+            color: #287681;
         }
 
         .site-nav {
             background: #e5e0e7;
         }
+
+        .site-wrap {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        .soundcloud-player {
+            margin: 18px 0 22px;
+        }
+
+        .soundcloud-player iframe {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            border: 0;
+            border-radius: 7px;
+        }
+
+        .soundcloud-info {
+            padding: 8px 12px;
+            text-align: right;
+            font-size: .9rem;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+            gap: 22px;
+            align-items: start;
+        }
+
+        .sidebar,
+        .content {
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .box {
+            box-sizing: border-box;
+            padding: 20px;
+            margin: 0 0 18px;
+            border: 1px solid #c9dfe1;
+            border-radius: 8px;
+            background: #f8fdfd;
+            box-shadow: 0 3px 10px rgba(28, 82, 88, .07);
+        }
+
+        .box h2 {
+            margin: 0 0 15px;
+            padding-bottom: 9px;
+            border-bottom: 1px solid #d9eaeb;
+            font-size: 1.12rem;
+            line-height: 1.35;
+        }
+
+        .box h3 {
+            margin: 18px 0 8px;
+            color: #28636a;
+        }
+
+        .box p,
+        .box li {
+            line-height: 1.75;
+        }
+
+        .box ul {
+            padding-left: 21px;
+            margin: 8px 0;
+        }
+
+        .miku-perfil-image {
+            display: block;
+            width: 100%;
+            max-height: 350px;
+            object-fit: contain;
+            object-position: center;
+            background: #e9f8f8;
+            border-radius: 6px;
+            margin: 0 0 14px;
+        }
+
+        .vocaloid-info {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(180px, .85fr);
+            gap: 20px;
+            align-items: center;
+        }
+
+        .banner-image {
+            display: block;
+            width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+            border-radius: 6px;
+            background: #e9f8f8;
+        }
+
+        .perfil {
+            display: grid;
+            grid-template-columns: minmax(160px, .72fr) minmax(0, 1.28fr);
+            gap: 20px;
+            align-items: start;
+        }
+
+        .perfil img {
+            display: block;
+            width: 100%;
+            max-height: 360px;
+            object-fit: contain;
+            object-position: center;
+            background: #e9f8f8;
+            border-radius: 6px;
+        }
+
+        .miku-data {
+            display: grid;
+            grid-template-columns: minmax(150px, .75fr) minmax(0, 1.25fr);
+            gap: 20px;
+            align-items: center;
+        }
+
+        .miku-data-image img {
+            display: block;
+            width: 100%;
+            max-height: 320px;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 6px;
+        }
+
+        .miku-data-image .small {
+            line-height: 1.6;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #d9eaeb;
+            text-align: left;
+            vertical-align: top;
+            line-height: 1.55;
+        }
+
+        .data-table th {
+            width: 38%;
+            color: #28636a;
+        }
+
+        .stamp {
+            display: inline-block;
+            margin: 5px 5px 0 0;
+        }
+
+        @media (max-width: 760px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .sidebar .box:first-child {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .sidebar,
+            .perfil,
+            .vocaloid-info,
+            .miku-data {
+                grid-template-columns: 1fr;
+            }
+
+            .miku-perfil-image {
+                max-height: 320px;
+            }
+
+            .perfil img,
+            .banner-image {
+                max-height: 300px;
+            }
+
+            .box {
+                padding: 15px;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 8px;
+            }
+        }
     </style>
 </head>
 
 <body>
+
+    <div id="left-panel"></div>
+    <div id="right-panel"></div>
+
     <div class="site-wrap">
 
         <header class="site-header">
@@ -41,46 +250,62 @@
             ♪ MIKU MIKU NI SHITE AGERU ♪ ♪
         </div>
 
+        <div id="site-navigation"></div>
 
-        <nav class="site-nav">
-            <a href="../index.html">HOME</a> |
-            <a href="../musica.html">MUSIC</a> |
-            <a href="../videojuegos.html">GAMES</a> |
-            <a href="../cultura.html">NET CULTURE</a> |
-            <a href="../sobre-mi.html">ABOUT</a>
-        </nav>
-        <div style="font-size: 10px; color: #cccccc; line-break: anywhere; word-break: normal; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif; font-weight: 100;">
-            <a href="https://soundcloud.com/miku-miku01-vocaloid" title="Miku 01 Vocaloid" target="_blank" style="color: #cccccc; text-decoration: none;">Miku 01 Vocaloid</a>
-            ·
-            <a href="https://soundcloud.com/miku-miku01-vocaloid/weekender-girl-hatsune-miku-1" title="Weekender Girl - Hatsune Miku" target="_blank" style="color: #cccccc; text-decoration: none;">Weekender Girl - Hatsune Miku</a>
+        <div class="soundcloud-player">
+
+            <iframe
+                width="100%"
+                height="320"
+                scrolling="no"
+                frameborder="no"
+                allow="autoplay; encrypted-media"
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A428097347&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+            </iframe>
+
+            <div class="soundcloud-info">
+
+                <a
+                    href="https://soundcloud.com/cfm_miku"
+                    target="_blank"
+                    title="Hatsune Miku 初音ミク">
+                    Hatsune Miku 初音ミク
+                </a>
+
+                ·
+
+                <a
+                    href="https://soundcloud.com/cfm_miku/sets/hatsune-miku"
+                    target="_blank"
+                    title="Hatsune Miku">
+                    Hatsune Miku
+                </a>
+
+            </div>
         </div>
-<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A57398445&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/miku-miku01-vocaloid" title="Miku 01 Vocaloid" target="_blank" style="color: #cccccc; text-decoration: none;">Miku 01 Vocaloid</a> · <a href="https://soundcloud.com/miku-miku01-vocaloid/weekender-girl-hatsune-miku-1" title="Weekender Girl - Hatsune Miku" target="_blank" style="color: #cccccc; text-decoration: none;">Weekender Girl - Hatsune Miku</a></div>
+
         <div class="layout">
 
-            <!-- BARRA LATERAL -->
             <aside class="sidebar">
 
-                <!-- PERFIL -->
-<section class="box">
-    <h2>★ PERFIL</h2>
+                <section class="box">
+                    <h2>★ PERFIL</h2>
 
-    <img
-        class="miku-profile-image"
-        src="../img/hatsune-miku/miku1.jpg"
-        alt="Hatsune Miku">
+                    <img
+                        class="miku-perfil-image"
+                        src="https://piapro.net/miku20th/images/img_miku.png"
+                        alt="Hatsune Miku">
 
-    <div class="miku-player"></div>
+                    <p><b>Hatsune Miku / 初音ミク</b></p>
+                    <p class="small">Virtual singer · Voicebank</p>
 
-    <p><b>Hatsune Miku / 初音ミク</b></p>
-    <p class="small">Virtual singer · Voicebank</p>
+                    <span class="stamp">VOCALOID2</span>
+                    <span class="stamp">2007</span>
+                </section>
 
-    <span class="stamp">VOCALOID2</span>
-    <span class="stamp">2007</span>
-</section>
-
-                <!-- INFORMACIÓN RÁPIDA -->
                 <section class="box">
                     <h2>★ Información rápida</h2>
+
                     <ul>
                         <li>Desarrolladora: Crypton Future Media</li>
                         <li>Software inicial: VOCALOID2</li>
@@ -91,12 +316,14 @@
                 </section>
 
                 <section class="box">
-                    <h2>★ links</h2>
+                    <h2>★ enlaces</h2>
+
                     <p>
                         <a href="https://ec.crypton.co.jp/pages/prod/vocaloid/cv01_us" target="_blank" rel="noopener">
                             Crypton Future Media
                         </a>
                     </p>
+
                     <p>
                         <a href="https://www.vocaloid.com/" target="_blank" rel="noopener">
                             VOCALOID
@@ -109,93 +336,113 @@
             <main class="content">
 
                 <section class="box">
-    <h2>☆ ¿Qué es VOCALOID?</h2>
+                    <h2>☆ ¿Qué es VOCALOID?</h2>
 
-    <div class="vocaloid-info">
-        <div>
-            <p>
-                VOCALOID es una tecnología de síntesis de voz cantada desarrollada por Yamaha.
-                El usuario introduce melodía y letra, y el programa genera una interpretación
-                a partir de un banco de voz.
-            </p>
-        </div>
+                    <div class="vocaloid-info">
 
-        <img
-            class="banner-image"
-            src="../img/hatsune-miku/vocaloid.jpg"
-            alt="Imagen relacionada con VOCALOID">
-    </div>
-</section>
+                        <div>
+                            <p>
+                                VOCALOID es una tecnología de síntesis de voz cantada desarrollada por Yamaha.
+                                El usuario introduce melodía y letra, y el programa genera una interpretación
+                                a partir de un banco de voz.
+                            </p>
+                        </div>
+
+                        <img
+                            class="banner-image"
+                            src="https://piapro.net/miku20th/images/img_package.png"
+                            alt="Imagen relacionada con VOCALOID">
+
+                    </div>
+                </section>
 
                 <section class="box">
                     <h2>☆ Hatsune Miku</h2>
 
-                    <div class="profile">
-                        <img src="../img/hatsune-miku/miku2.jpg" alt="Hatsune Miku">
+                    <div class="perfil">
+
+                        <img
+                            src="https://i.ebayimg.com/images/g/kUoAAOSwnbVl76xJ/s-l1200.jpg"
+                            alt="Hatsune Miku, ilustración oficial">
 
                         <div>
                             <p>
                                 Hatsune Miku (初音ミク) es un banco de voz desarrollado y distribuido
                                 por Crypton Future Media. Fue lanzado el 31 de agosto de 2007 para VOCALOID2.
                             </p>
+
                             <p>
                                 La voz se creó a partir de muestras de la actriz japonesa Saki Fujita.
                                 Crypton también desarrolló una identidad visual para el producto;
                                 el diseño de Miku estuvo a cargo del ilustrador KEI.
                             </p>
                         </div>
+
                     </div>
                 </section>
 
-<section class="box">
-    <h2>☆ Datos</h2>
+                <section class="box">
+                    <h2>☆ Datos</h2>
 
-    <div class="miku-data">
-        <div class="miku-data-image">
-            <img src="../img/hatsune-miku/saki.jpg" alt="Saki Fujita, actriz de voz">
+                    <div class="miku-data">
 
-            <p class="small">
-                Saki Fujita proporcionó las muestras vocales utilizadas para el banco de voz.
-            </p>
-        </div>
+                        <div class="miku-data-image">
 
-        <table class="data-table">
-            <tr>
-                <th>Nombre</th>
-                <td>初音ミク / Hatsune Miku</td>
-            </tr>
-            <tr>
-                <th>Empresa</th>
-                <td>Crypton Future Media</td>
-            </tr>
-            <tr>
-                <th>Primera versión</th>
-                <td>VOCALOID2</td>
-            </tr>
-            <tr>
-                <th>Lanzamiento</th>
-                <td>31 de agosto de 2007</td>
-            </tr>
-            <tr>
-                <th>Voz</th>
-                <td>Saki Fujita</td>
-            </tr>
-            <tr>
-                <th>Ilustración</th>
-                <td>KEI</td>
-            </tr>
-        </table>
-    </div>
-</section>
+                            <img
+                                src="https://www.artsvision.co.jp/wp-content/uploads/2016/10/%E8%97%A4%E7%94%B0%E5%92%B2%E3%80%80HP.jpg"
+                                alt="Saki Fujita">
 
-                <!-- COMUNIDAD -->
+                            <p class="small">
+                                Saki Fujita proporcionó las muestras vocales utilizadas para el banco de voz.
+                            </p>
+
+                        </div>
+
+                        <table class="data-table">
+
+                            <tr>
+                                <th>Nombre</th>
+                                <td>初音ミク / Hatsune Miku</td>
+                            </tr>
+
+                            <tr>
+                                <th>Empresa</th>
+                                <td>Crypton Future Media</td>
+                            </tr>
+
+                            <tr>
+                                <th>Primera versión</th>
+                                <td>VOCALOID2</td>
+                            </tr>
+
+                            <tr>
+                                <th>Lanzamiento</th>
+                                <td>31 de agosto de 2007</td>
+                            </tr>
+
+                            <tr>
+                                <th>Voz</th>
+                                <td>Saki Fujita</td>
+                            </tr>
+
+                            <tr>
+                                <th>Ilustración</th>
+                                <td>KEI</td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </section>
+
                 <section class="box">
                     <h2>☆ Comunidad</h2>
+
                     <p>
                         La comunidad de Miku creció gracias a usuarios que publicaban canciones,
                         ilustraciones, animaciones y videos. Plataformas japonesas como Nico Nico Douga
                         ayudaron a difundir estas creaciones.
                     </p>
+
                     <p>
                         Miku se convirtió en un personaje asociado a la producción musical colaborativa
                         en Internet. Las canciones no pertenecen a una única discografía interpretada
@@ -204,11 +451,11 @@
                     </p>
                 </section>
 
-                <!-- CANCIONES Y PRODUCTORES -->
                 <section class="box">
                     <h2>☆ Canciones y Productores</h2>
 
                     <h3>Canciones conocidas</h3>
+
                     <ul>
                         <li><i>みくみくにしてあげる♪</i> — ika.</li>
                         <li><i>メルト / Melt</i> — ryo.</li>
@@ -217,25 +464,28 @@
                     </ul>
 
                     <h3>Productores</h3>
+
                     <p>
                         ryo, DECO*27, kz, PinocchioP y Kikuo, entre otros.
                     </p>
                 </section>
 
-                <!-- FUENTES -->
                 <section class="box">
                     <h2>☆ Fuentes</h2>
+
                     <ul>
                         <li>
                             <a href="https://es.wikipedia.org/wiki/Hatsune_Miku" target="_blank" rel="noopener">
                                 Wikipedia en español — Hatsune Miku
                             </a>
                         </li>
+
                         <li>
                             <a href="https://en.wikipedia.org/wiki/Hatsune_Miku" target="_blank" rel="noopener">
                                 Wikipedia en inglés — Hatsune Miku
                             </a>
                         </li>
+
                         <li>
                             <a href="https://ec.crypton.co.jp/pages/prod/vocaloid/cv01_us" target="_blank" rel="noopener">
                                 Crypton Future Media
@@ -245,15 +495,12 @@
                 </section>
 
             </main>
+
         </div>
 
-        <footer class="site-footer">
-            Kitsune · fan-made archive · not an official page · by Cruz Ángelo
-            <br>
-            <a href="../musica.html">← Back to Music</a> |
-            <a href="../index.html">HOME</a>
-        </footer>
+        <div id="site-footer"></div>
 
     </div>
+
 </body>
 </html>

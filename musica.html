@@ -1,35 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MUSIC ROOM</title>
-<link rel="stylesheet" href="css/estilos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitsune - Archivo musical</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/componentes.js" defer></script>
+    <script src="https://w.soundcloud.com/player/api.js" defer></script>
+    <script src="js/soundcloud.js" defer></script>
 </head>
 <body>
-<div class="site-wrap">
-<header class="site-header">
-<p class="eyebrow">KITSUNE · MUSIC ARCHIVE</p>
-<h1>MUSIC ROOM</h1>
-<p>Japanese artists / bands / Vocaloid</p>
-</header>
-<div class="ticker">♪ NOW PLAYING: SOMETHING FROM JAPAN ♪</div>
-<nav class="site-nav">
-<a href="index.html">HOME</a> |
-<a href="musica.html">MUSIC</a> |
-<a href="videojuegos.html">GAMES</a> |
-<a href="cultura.html">NET CULTURE</a> |
-<a href="sobre-mi.html">ABOUT</a>
-</nav>
-<main>
-<section class="box"><h2>音楽 / Music index</h2><p>Fichas de artistas y proyectos musicales de Japón. Elegí una página para ver información, discografía y enlaces.</p>
-<div class="item"><b><a href="musica/midori.html">Midori (ミドリ)</a></b><p>Grupo japonés de punk jazz, noise rock y rock experimental.</p></div>
-<div class="item"><b><a href="musica/hatsune-miku.html">Hatsune Miku (初音ミク)</a></b><p>Banco de voz y personaje virtual de Crypton Future Media.</p></div>
-<div class="item"><b><a href="musica/yukiko-okada.html">Yukiko Okada (岡田有希子)</a></b><p>Cantante y actriz japonesa de la década de 1980.</p></div>
-<div class="item"><b><a href="musica/kikuo.html">Kikuo (きくお)</a></b><p>Productor musical y productor de VOCALOID.</p></div></section>
-<section class="box"><h2>メモ / Notes</h2><p>Las fichas reúnen datos biográficos, publicaciones y enlaces a fuentes externas. Algunas imágenes se cargan desde carpetas locales y otras desde sus sitios de origen.</p></section>
-</main>
-<footer class="site-footer">Kitsune · personal archive · 2000s web mood ☆<br><a href="index.html">Back to HOME ↑</a></footer>
+    <div class="site-wrap">
+        <header class="site-header">
+            <p class="eyebrow">KITSUNE · ARCHIVO MUSICAL</p>
+            <h1>SALA DE MÚSICA</h1>
+            <p>Artistas japoneses · Bandas · Vocaloid</p>
+        </header>
+
+        <div class="ticker">
+            <div class="soundcloud-bar">
+    <span class="soundcloud-label">♪ NOW PLAYING:</span>
+
+    <span class="soundcloud-track">Kikuo - Rainborn Menoko</span>
+
+    <button id="soundcloud-toggle">▶</button>
+
+    <iframe
+        id="soundcloud-player"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2162044272&auto_play=false&hide_related=true&show_comments=false&show_user=false&visual=false"
+        allow="autoplay"
+        frameborder="0">
+    </iframe>
 </div>
+
+<script src="https://w.soundcloud.com/player/api.js"></script>
+<script src="js/soundcloud.js"></script>
+        </div>
+
+        <nav class="site-nav" aria-label="Navegación principal">
+            <a href="index.html">INICIO</a> |
+            <a href="musica.html">MÚSICA</a> |
+            <a href="videojuegos.html">VIDEOJUEGOS</a> |
+            <a href="cultura.html">CULTURA DIGITAL</a> |
+            <a href="sobre-mi.html">SOBRE MÍ</a>
+        </nav>
+
+        <main>
+            <section class="box">
+                <h2>音楽 / Índice</h2>
+                <p>
+                    Fichas de artistas y proyectos musicales de Japón.
+                    Elegí una página para consultar información, discografía y enlaces.
+                </p>
+
+                <div class="item">
+                    <b><a href="musica/midori.html">Midori (ミドリ)</a></b>
+                    <p>Grupo japonés de punk jazz, noise rock y rock experimental.</p>
+                </div>
+
+                <div class="item">
+                    <b><a href="musica/hatsune-miku.html">Hatsune Miku (初音ミク)</a></b>
+                    <p>Banco de voz y personaje virtual de Crypton Future Media.</p>
+                </div>
+
+                <div class="item">
+                    <b><a href="musica/yukiko-okada.html">Yukiko Okada (岡田有希子)</a></b>
+                    <p>Cantante y actriz japonesa de la década de 1980.</p>
+                </div>
+
+                <div class="item">
+                    <b><a href="musica/kikuo.html">Kikuo (きくお)</a></b>
+                    <p>Productor musical y creador de música con VOCALOID.</p>
+                </div>
+            </section>
+
+            <section class="box">
+                <h2>メモ / Nota</h2>
+                <p>
+                    Los datos sobre los artistas/bandas de cada ficha provienen de diferentes fuentes de internet.
+                </p>
+            </section>
+        </main>
+    </div>
+        </div>
+                <div id="left-panel"></div>
+
+                <div id="right-panel"></div>
+
+                <div id="site-footer"></div>
 </body>
 </html>
